@@ -71,12 +71,14 @@ else:
 
 ```mermaid
 flowchart LR
-    A[Pré-checks] --> B{all(OKs)}
-    A2[Bloqueios] --> C{any(Erros)}
-    B -- True --> D{not C}
-    B -- False --> X[Abortar]
-    D -- True --> RUN[Executar]
-    D -- False --> X
+    A[Pré-checks] --> B{Todos OK?}
+    A2[Bloqueios] --> C{Algum erro?}
+    B -- Não --> X[Abortar]
+    B -- Sim --> D{Sem bloqueios?}
+    C -- Sim --> X
+    C -- Não --> D
+    D -- Sim --> RUN[Executar]
+    D -- Não --> X
 ```
 
 ---
