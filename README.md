@@ -167,3 +167,132 @@ flowchart TD
 - **Evite aninhar** `if` profundamente — use *guards* e estratégias.  
 - **Teste as condições** com dados sintéticos e *feature flags* para ligar/desligar caminhos.  
 - **Observabilidade** primeiro: sem medida, não há *sim/não* confiável.
+
+---
+
+## 🚀 Plano de Execução
+
+Este projeto demonstra conceitos de **controle de fluxo** aplicados à Engenharia de Dados através de exemplos práticos e exercícios.
+
+### 📋 Pré-requisitos
+
+- **Python 3.13+** (gerenciado via `uv`)
+- **uv** instalado ([instruções de instalação](https://docs.astral.sh/uv/getting-started/installation/))
+
+### 🔧 Configuração do Ambiente
+
+1. **Clone o repositório**
+   ```bash
+   git clone <url-do-repositorio>
+   cd controle_de_fluxo_engenharia_de_dados
+   ```
+
+2. **Instale as dependências**
+   ```bash
+   uv sync
+   ```
+
+3. **Verifique a instalação**
+   ```bash
+   uv run python --version
+   ```
+
+### 🎯 Executando o Projeto
+
+#### Execução Básica
+```bash
+uv run python main.py
+```
+
+#### Modo Interativo (para experimentos)
+```bash
+uv run python
+```
+
+#### Execução com Debug
+```bash
+uv run python -v main.py
+```
+
+### 📚 Estrutura de Aprendizado
+
+O projeto está organizado para demonstrar progressivamente:
+
+1. **Expressões Atômicas** - Truthiness básico
+2. **Comparações Ricas** - Operadores de comparação
+3. **Operadores Booleanos** - Lógica combinada
+4. **Atribuição em Expressão** - Walrus operator
+5. **Estruturas Condicionais** - if/elif/else
+6. **Pipelines de Dados** - Controle de fluxo em ETL
+
+### 🧪 Exercícios Práticos
+
+Para cada conceito, experimente:
+
+1. **Modifique o `main.py`** com seus próprios exemplos
+2. **Teste diferentes cenários** de dados
+3. **Implemente validações** de pipeline
+4. **Adicione logging** para observabilidade
+
+### 🔍 Exemplos de Uso
+
+#### Validação de Dataset
+```python
+# Exemplo: validar se dataset está pronto para processamento
+def validar_dataset(df):
+    return (
+        df is not None and
+        len(df) > 0 and
+        not df.empty and
+        df.columns.isin(['id', 'nome', 'data']).all()
+    )
+```
+
+#### Controle de Pipeline
+```python
+# Exemplo: gate de execução baseado em condições
+def executar_etapa_se_ok():
+    if (tem_dados := verificar_particao()) and not em_manutencao():
+        processar_dados()
+        return True
+    return False
+```
+
+### 📊 Monitoramento e Observabilidade
+
+- **Logs estruturados** para cada decisão
+- **Métricas** de sucesso/falha
+- **Alertas** para condições críticas
+- **Retry logic** com backoff exponencial
+
+### 🛠️ Desenvolvimento
+
+#### Adicionando Novas Dependências
+```bash
+uv add nome-do-pacote
+```
+
+#### Executando Testes (quando implementados)
+```bash
+uv run pytest
+```
+
+#### Formatação de Código
+```bash
+uv run black .
+uv run isort .
+```
+
+### 📈 Próximos Passos
+
+1. **Implementar exemplos práticos** de cada conceito
+2. **Adicionar testes unitários** para validações
+3. **Criar cenários de pipeline** realistas
+4. **Documentar padrões** de controle de fluxo
+5. **Adicionar métricas** e observabilidade
+
+---
+
+## 📞 Suporte
+
+Para dúvidas ou sugestões sobre controle de fluxo em pipelines de dados, abra uma issue no repositório.
