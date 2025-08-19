@@ -1,8 +1,10 @@
-
 # Condições em Python aplicadas à Engenharia de Dados
+
 Como decidir se **uma etapa/pipeline é “sim (rodar/seguir)” ou “não (falhar/abortar)”**? A resposta nasce de **expressões condicionais** bem definidas, que transformam métricas e sinais do pipeline em `True`/`False` de forma previsível e testável.
 
 > Regra de ouro: toda etapa deve expor um **critério claro de sucesso** (ex.: *validação de schema passou, linhas > 0, SLA ok*) e um **comportamento para falha** (retry, skip, alertar, abortar).
+
+![image](https://github.com/lucianogalvao/controle-de-fluxo-engenharia-de-dados/assets/1000000000000000000000000000000000000000/image.png)
 
 ---
 
